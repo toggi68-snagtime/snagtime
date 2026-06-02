@@ -103,7 +103,7 @@ export default function WochenplanAuswahl({ onConfirm }) {
     selektiert.forEach((k) => {
       const [day, start] = k.split("_").map(Number);
       const d = addTage(weekStart, day);
-      const s = new Date(d); s.setHours(0, start / 60 | 0, start % 60, 0, 0);
+      const s = new Date(d); s.setHours(start / 60 | 0, start % 60, 0, 0);
       const e = new Date(s.getTime() + dauer * 6e4);
       arr.push({ day, start, datum: new Date(s), start_utc: s.toISOString(), ende_utc: e.toISOString() });
     });
